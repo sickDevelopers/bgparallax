@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Bgparallax example 1</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/bgparallax.css">
+    </head>
+    <body>
+        <div id="bgp-container">
+            <div class="parallaxed" data-xrange="20" data-yrange="20" id="layer1">
+                <img src="http://www.infooggi.it/public/foto/articoli/aeb3460613306fb3dc0e5ccc83224f1950c7840810f25.jpg" alt="" />
+            </div>
+        </div>
+        <div class="container">
+            <header>
+                <div id="logo">Our logo</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Nav 1</a>
+
+                        </li>
+                        <li><a href="#">Nav 2</a>
+
+                        </li>
+                        <li><a href="#">Nav 3</a>
+
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="inner">
+                <p>Some content for the page, Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Quisquam ut vel aliquid explicabo omnis quibusdam quis doloremque
+                    temporibus laboriosam laborum ab eum fuga distinctio totam doloribus similique
+                    praesentium dolor adipisci!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cupiditate
+                    autem culpa quod quia eum eligendi deleniti minus in nemo corporis odio
+                    quasi veniam quaerat doloremque obcaecati distinctio voluptas aut.</p>
+            </div>
+        </div>
+
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="../bgparallax.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#bgp-container').bgparallax();
+            });
+        </script>
+    </body>
+</html>
+
+

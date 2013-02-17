@@ -1,0 +1,7 @@
+/* bgparallax specific style */
+#bgp-container {
+    position: absolute;
+}
+.parallaxed {
+    position: relative;
+}
