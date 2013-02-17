@@ -1,4 +1,6 @@
+=======
 # BGParallax
+=======
 
 ## Background Parallax effect made easy
 
