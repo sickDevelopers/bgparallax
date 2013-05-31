@@ -68,43 +68,47 @@
 		this.$element.find('div').each( function( i, item ) {
 			var t = $(this);
 
+			var pxBgX = 0,
+				pxBgY = 0;
+
+			var pxBgWidth = 0,
+				pxBgHeight = 0;
+
 			// image size adaptations form parameters passed by
 			// data attributes
-			var bgSize = t.data('size').split(';');
-			var bgWidth = bgSize[0] ? bgSize[0].split(':')[1] : 'auto';
-			var bgHeight = bgSize[1] ? bgSize[1].split(':')[1] : 'auto';
+			if ( t.data('size') ) {
+				var bgSize = t.data('size').split(';');
+				var bgWidth = bgSize[0] ? bgSize[0].split(':')[1] : 'auto';
+				var bgHeight = bgSize[1] ? bgSize[1].split(':')[1] : 'auto';
 
-			var pxBgWidth,
-				pxBgHeight;
-
-			if ( bgWidth.indexOf('%') > -1 ) {
-				pxBgWidth = ( that.$element.width() / 100 ) * bgWidth.split('%')[0];
-			} else {
-				pxBgWidth = bgWidth.split('px')[0];
-			}
-			if ( bgHeight.indexOf('%') > -1 ) {
-				pxBgHeight = ( that.$element.height() / 100 ) * bgHeight.split('%')[0];
-			} else {
-				pxBgHeight = bgHeight.split('px')[0];
+				if ( bgWidth.indexOf('%') > -1 ) {
+					pxBgWidth = ( that.$element.width() / 100 ) * bgWidth.split('%')[0];
+				} else {
+					pxBgWidth = bgWidth.split('px')[0];
+				}
+				if ( bgHeight.indexOf('%') > -1 ) {
+					pxBgHeight = ( that.$element.height() / 100 ) * bgHeight.split('%')[0];
+				} else {
+					pxBgHeight = bgHeight.split('px')[0];
+				}
 			}
 
 			// image position adaptations
-			var bgPosition = t.data('position').split(';');
-			var bgX = bgPosition[0] ? bgPosition[0].split(':')[1] : '0';
-			var bgY = bgPosition[1] ? bgPosition[1].split(':')[1] : '0';
+			if ( t.data('position') ) {
+				var bgPosition = t.data('position').split(';');
+				var bgX = bgPosition[0] ? bgPosition[0].split(':')[1] : '0';
+				var bgY = bgPosition[1] ? bgPosition[1].split(':')[1] : '0';
 
-			var pxBgX,
-				pxBgY;
-
-			if ( bgX.indexOf('%') > -1 ) {
-				pxBgX = ( that.$element.width() / 100 ) * bgX.split('%')[0];
-			} else {
-				pxBgX = bgX.split('px')[0];
-			}
-			if ( bgY.indexOf('%') > -1 ) {
-				pxBgY = ( that.$element.height() / 100 ) * bgY.split('%')[0];
-			} else {
-				pxBgY = bgY.split('px')[0];
+				if ( bgX.indexOf('%') > -1 ) {
+					pxBgX = ( that.$element.width() / 100 ) * bgX.split('%')[0];
+				} else {
+					pxBgX = bgX.split('px')[0];
+				}
+				if ( bgY.indexOf('%') > -1 ) {
+					pxBgY = ( that.$element.height() / 100 ) * bgY.split('%')[0];
+				} else {
+					pxBgY = bgY.split('px')[0];
+				}
 			}
 
 			// console.log(pxBgX + ' ' + pxBgY);
@@ -123,12 +127,11 @@
 			that.layers.push( el );
 
 			t.css({
-				width: pxBgWidth,
 				backgroundSize: pxBgWidth + el.xrange * 2,
 				backgroundPosition: '0 0',
 				backgroundRepeat: 'no-repeat',
 				position: 'relative',
-				marginTop: - that.$element.height() * el.order
+				marginTop: ( el.order === 0 ) ? 0 : - that.$element.height() 
 			});
 
 		});
