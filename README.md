@@ -31,6 +31,8 @@ Here are some options you can inject in the HTML via data attributes
 
 * size : (in % or px) of the element. Use CSS syntax here (ex: width:100%;height:200px; [order MATTERS]).  
 
+* position : (in % or px) of the element. Use CSS syntax here (ex: x:30%;y:200px; [order MATTERS]).  
+
 ## Contacts
 
 You can contact me for any information at oscar.chinellato (at) sickdevelopers (dot) com, or @sick_oscar
